@@ -16,7 +16,7 @@ class classes(commands.Cog):
       self.session = aiohttp.ClientSession()
 
   @commands.command()
-  async def classes(self,ctx,args = None,level=None,page = 0,message = None,embed_data = None):
+  async def classes(self,ctx,*,args = None,level=None,page = 0,message = None,embed_data = None):
     try:
         if not embed_data:
             async with self.session.get(f'{BASE_URL}/api/classes') as resp:
@@ -279,9 +279,9 @@ class classes(commands.Cog):
             'reaction_add', timeout=45, check=check)
         await reaction.remove(user)
         if reaction.emoji == "⬅️":
-            await self.classes(ctx,args = args,level = level,page = page-1,message = message,embed_data=data)
+            await self.classes(ctx=ctx,args = args,level = level,page = page-1,message = message,embed_data=data)
         elif reaction.emoji == "➡️":
-            await self.classes(ctx,args,level,page+1,message=message,embed_data=data)
+            await self.classes(ctx=ctx,args = args,level = level,page = page+1,message = message,embed_data=data)
     except TimeoutError:
         pass
     except IndexError:
