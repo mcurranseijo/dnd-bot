@@ -15,7 +15,7 @@ async def on_ready():  # When the bot is ready
     print(bot.user)  # Prints the bot's username and identifier
 
 extensions = [
-	'cogs.test','cogs.dev','cogs.help'
+	'cogs.spells','cogs.dev','cogs.help','cogs.classes','cogs.races','cogs.equipment'
 ]
 
 if __name__ == '__main__':  # Ensures this is the file being ran
