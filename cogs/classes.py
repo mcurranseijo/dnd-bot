@@ -16,7 +16,7 @@ class classes(commands.Cog):
       self.session = aiohttp.ClientSession()
 
   @commands.command()
-  async def classes(self,ctx,*,args = None,level=None,page = 0,message = None,embed_data = None):
+  async def classes(self,ctx,args = None,level=None,page = 0,message = None,embed_data = None):
     try:
         if not embed_data:
             async with self.session.get(f'{BASE_URL}/api/classes') as resp:
