@@ -15,7 +15,7 @@ class classes(commands.Cog):
       self.bot = bot
       self.session = aiohttp.ClientSession()
 
-  @commands.command()
+  @commands.command(aliases=['class','c'])
   async def classes(self,ctx,args = None,level=None,page = 0,message = None,embed_data = None):
     try:
         if not embed_data:
