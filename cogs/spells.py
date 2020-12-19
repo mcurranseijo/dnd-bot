@@ -50,6 +50,51 @@ class spells(commands.Cog):
         
         embed = discord.Embed(title=args,description=data['desc'][0],color=Color.red())
         fields = []
+        try:
+            fields.append(("Higher Level",data['higher_level'][0],False))
+        except KeyError:
+            fields.append(("Higher Level",'N/A',False))
+        
+        try:
+            fields.append(("Range",data['range'],True))
+        except KeyError:
+            fields.append(("Range","N/A",True))
+            
+        try:
+            fields.append(("Components",', '.join(data['components']),True))
+        except KeyError:
+            fields.append(("Components","N/A",True))
+        
+        try:
+            fields.append(("Material",data['material'],True))
+        except KeyError:
+            fields.append(("Material","N/A",True))
+        
+        
+        try:
+            fields.append(("Ritual",data['ritual'],True))
+        except KeyError:
+            fields.append(("Ritual","N/A",True))
+            
+        try:
+            fields.append(("Concentration",data['concentratio'],True))
+        except KeyError:
+            fields.append(("Concentration","N/A",True))
+            
+        try:
+            fields.append(("Level",data['level'],True))
+        except KeyError:
+            fields.append(("Level",'N/A',True))
+            
+        try:
+            fields.append(("Attack Type",data['attack_type'],True))
+        except KeyError:
+            fields.append(("Attack Type",'N/A',True))
+            
+        try:
+            fields.append(("Damage Type",data['attack_type'],True))
+        except KeyError:
+            fields.append(("Attack Type",'N/A',True))
         
         for name,value,inline in fields:
             embed.add_field(name=name,value=value,inline=inline)
